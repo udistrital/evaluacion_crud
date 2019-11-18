@@ -3,11 +3,13 @@ package controllers
 import (
 	"encoding/json"
 	"errors"
-	"github.com/udistrital/evaluacion_crud/models"
 	"strconv"
 	"strings"
 
+	"github.com/udistrital/evaluacion_crud/models"
+
 	"github.com/astaxie/beego"
+	"github.com/astaxie/beego/logs"
 )
 
 // CondicionController operations for Condicion
@@ -29,7 +31,7 @@ func (c *CondicionController) URLMapping() {
 // @Description create Condicion
 // @Param	body		body 	models.Condicion	true		"body for Condicion content"
 // @Success 201 {int} models.Condicion
-// @Failure 403 body is empty
+// @Failure 400 the request contains incorrect syntax
 // @router / [post]
 func (c *CondicionController) Post() {
 	var v models.Condicion
@@ -38,10 +40,16 @@ func (c *CondicionController) Post() {
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = v
 		} else {
-			c.Data["json"] = err.Error()
+			logs.Error(err)
+			//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+			c.Data["system"] = err
+			c.Abort("400")
 		}
 	} else {
-		c.Data["json"] = err.Error()
+		logs.Error(err)
+		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+		c.Data["system"] = err
+		c.Abort("400")
 	}
 	c.ServeJSON()
 }
@@ -51,14 +59,17 @@ func (c *CondicionController) Post() {
 // @Description get Condicion by id
 // @Param	id		path 	string	true		"The key for staticblock"
 // @Success 200 {object} models.Condicion
-// @Failure 403 :id is empty
+// @Failure 404 not found resource
 // @router /:id [get]
 func (c *CondicionController) GetOne() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
 	v, err := models.GetCondicionById(id)
 	if err != nil {
-		c.Data["json"] = err.Error()
+		logs.Error(err)
+		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+		c.Data["system"] = err
+		c.Abort("404")
 	} else {
 		c.Data["json"] = v
 	}
@@ -75,7 +86,7 @@ func (c *CondicionController) GetOne() {
 // @Param	limit	query	string	false	"Limit the size of result set. Must be an integer"
 // @Param	offset	query	string	false	"Start position of result set. Must be an integer"
 // @Success 200 {object} models.Condicion
-// @Failure 403
+// @Failure 404 not found resource
 // @router / [get]
 func (c *CondicionController) GetAll() {
 	var fields []string
@@ -121,8 +132,14 @@ func (c *CondicionController) GetAll() {
 
 	l, err := models.GetAllCondicion(query, fields, sortby, order, offset, limit)
 	if err != nil {
-		c.Data["json"] = err.Error()
+		logs.Error(err)
+		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+		c.Data["system"] = err
+		c.Abort("404")
 	} else {
+		if l == nil {
+			l = append(l, map[string]interface{}{})
+		}
 		c.Data["json"] = l
 	}
 	c.ServeJSON()
@@ -134,7 +151,7 @@ func (c *CondicionController) GetAll() {
 // @Param	id		path 	string	true		"The id you want to update"
 // @Param	body		body 	models.Condicion	true		"body for Condicion content"
 // @Success 200 {object} models.Condicion
-// @Failure 403 :id is not int
+// @Failure 400 the request contains incorrect syntax
 // @router /:id [put]
 func (c *CondicionController) Put() {
 	idStr := c.Ctx.Input.Param(":id")
@@ -142,12 +159,18 @@ func (c *CondicionController) Put() {
 	v := models.Condicion{Id: id}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
 		if err := models.UpdateCondicionById(&v); err == nil {
-			c.Data["json"] = "OK"
+			c.Data["json"] = v
 		} else {
-			c.Data["json"] = err.Error()
+			logs.Error(err)
+			//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+			c.Data["system"] = err
+			c.Abort("400")
 		}
 	} else {
-		c.Data["json"] = err.Error()
+		logs.Error(err)
+		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+		c.Data["system"] = err
+		c.Abort("400")
 	}
 	c.ServeJSON()
 }
@@ -157,15 +180,18 @@ func (c *CondicionController) Put() {
 // @Description delete the Condicion
 // @Param	id		path 	string	true		"The id you want to delete"
 // @Success 200 {string} delete success!
-// @Failure 403 id is empty
+// @Failure 404 not found resource
 // @router /:id [delete]
 func (c *CondicionController) Delete() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
 	if err := models.DeleteCondicion(id); err == nil {
-		c.Data["json"] = "OK"
+		c.Data["json"] = map[string]interface{}{"Id": id}
 	} else {
-		c.Data["json"] = err.Error()
+		logs.Error(err)
+		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+		c.Data["system"] = err
+		c.Abort("404")
 	}
 	c.ServeJSON()
 }
