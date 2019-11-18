@@ -11,7 +11,7 @@ import (
 )
 
 type Seccion struct {
-	Id                int        `orm:"column(id);pk"`
+	Id                int        `orm:"column(id);pk;auto"`
 	Nombre            string     `orm:"column(nombre)"`
 	FechaCreacion     time.Time  `orm:"column(fecha_creacion);type(timestamp without time zone)"`
 	FechaModificacion time.Time  `orm:"column(fecha_modificacion);type(timestamp without time zone)"`

@@ -11,7 +11,7 @@ import (
 )
 
 type ResultadoEvaluacion struct {
-	Id                  int         `orm:"column(id);pk"`
+	Id                  int         `orm:"column(id);pk;auto"`
 	ResultadoEvaluacion string      `orm:"column(resultado_evaluacion);type(json)"`
 	FechaCreacion       time.Time   `orm:"column(fecha_creacion);type(timestamp without time zone)"`
 	FechaModificacion   time.Time   `orm:"column(fecha_modificacion);type(timestamp without time zone)"`

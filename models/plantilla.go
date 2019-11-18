@@ -11,7 +11,7 @@ import (
 )
 
 type Plantilla struct {
-	Id                int       `orm:"column(id);pk"`
+	Id                int       `orm:"column(id);pk;auto"`
 	Activo            bool      `orm:"column(activo)"`
 	Descripcion       string    `orm:"column(descripcion);null"`
 	FechaCreacion     time.Time `orm:"column(fecha_creacion);type(timestamp without time zone)"`

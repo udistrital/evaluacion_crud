@@ -11,7 +11,7 @@ import (
 )
 
 type Item struct {
-	Id                int         `orm:"column(id);pk"`
+	Id                int         `orm:"column(id);pk;auto"`
 	Nombre            string      `orm:"column(nombre)"`
 	Valor             string      `orm:"column(valor);null"`
 	FechaCreacion     time.Time   `orm:"column(fecha_creacion);type(timestamp without time zone)"`

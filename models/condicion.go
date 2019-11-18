@@ -11,7 +11,7 @@ import (
 )
 
 type Condicion struct {
-	Id                   int       `orm:"column(id);pk"`
+	Id                   int       `orm:"column(id);pk;auto"`
 	SeccionDependenciaId int       `orm:"column(seccion_dependencia_id)"`
 	OpcionItemId         int       `orm:"column(opcion_item_id)"`
 	IdSeccion            *Seccion  `orm:"column(id_seccion);rel(fk)"`

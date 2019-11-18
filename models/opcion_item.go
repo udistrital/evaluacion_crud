@@ -11,7 +11,7 @@ import (
 )
 
 type OpcionItem struct {
-	Id                int       `orm:"column(id);pk"`
+	Id                int       `orm:"column(id);pk;auto"`
 	FehcaCreacion     time.Time `orm:"column(fehca_creacion);type(timestamp without time zone)"`
 	FechaModificacion time.Time `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 	IdItem            *Item     `orm:"column(id_item);rel(fk)"`

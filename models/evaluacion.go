@@ -11,7 +11,7 @@ import (
 )
 
 type Evaluacion struct {
-	Id                int       `orm:"column(id);pk"`
+	Id                int       `orm:"column(id);pk;auto"`
 	ProveedorId       int       `orm:"column(proveedor_id)"`
 	ContratoSuscrito  int       `orm:"column(contrato_suscrito)"`
 	Vigencia          int       `orm:"column(vigencia);null"`
