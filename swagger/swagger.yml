@@ -1,0 +1,1709 @@
+swagger: "2.0"
+info:
+  title: beego Test API
+  description: beego has a very cool tools to autogenerate documents for your API
+  version: 1.0.0
+  termsOfService: http://beego.me/
+  contact:
+    email: astaxie@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+basePath: /v1
+paths:
+  /clasificacion/:
+    get:
+      tags:
+      - clasificacion
+      description: get Clasificacion
+      operationId: ClasificacionController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Clasificacion'
+        "403":
+          description: ""
+    post:
+      tags:
+      - clasificacion
+      description: create Clasificacion
+      operationId: ClasificacionController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for Clasificacion content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Clasificacion'
+      responses:
+        "201":
+          description: '{int} models.Clasificacion'
+        "403":
+          description: body is empty
+  /clasificacion/{id}:
+    get:
+      tags:
+      - clasificacion
+      description: get Clasificacion by id
+      operationId: ClasificacionController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Clasificacion'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - clasificacion
+      description: update the Clasificacion
+      operationId: ClasificacionController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for Clasificacion content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Clasificacion'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Clasificacion'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - clasificacion
+      description: delete the Clasificacion
+      operationId: ClasificacionController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /clasificacion_plantilla/:
+    get:
+      tags:
+      - clasificacion_plantilla
+      description: get ClasificacionPlantilla
+      operationId: ClasificacionPlantillaController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.ClasificacionPlantilla'
+        "403":
+          description: ""
+    post:
+      tags:
+      - clasificacion_plantilla
+      description: create ClasificacionPlantilla
+      operationId: ClasificacionPlantillaController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for ClasificacionPlantilla content
+        required: true
+        schema:
+          $ref: '#/definitions/models.ClasificacionPlantilla'
+      responses:
+        "201":
+          description: '{int} models.ClasificacionPlantilla'
+        "403":
+          description: body is empty
+  /clasificacion_plantilla/{id}:
+    get:
+      tags:
+      - clasificacion_plantilla
+      description: get ClasificacionPlantilla by id
+      operationId: ClasificacionPlantillaController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.ClasificacionPlantilla'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - clasificacion_plantilla
+      description: update the ClasificacionPlantilla
+      operationId: ClasificacionPlantillaController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for ClasificacionPlantilla content
+        required: true
+        schema:
+          $ref: '#/definitions/models.ClasificacionPlantilla'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.ClasificacionPlantilla'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - clasificacion_plantilla
+      description: delete the ClasificacionPlantilla
+      operationId: ClasificacionPlantillaController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /condicion/:
+    get:
+      tags:
+      - condicion
+      description: get Condicion
+      operationId: CondicionController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Condicion'
+        "403":
+          description: ""
+    post:
+      tags:
+      - condicion
+      description: create Condicion
+      operationId: CondicionController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for Condicion content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Condicion'
+      responses:
+        "201":
+          description: '{int} models.Condicion'
+        "403":
+          description: body is empty
+  /condicion/{id}:
+    get:
+      tags:
+      - condicion
+      description: get Condicion by id
+      operationId: CondicionController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Condicion'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - condicion
+      description: update the Condicion
+      operationId: CondicionController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for Condicion content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Condicion'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Condicion'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - condicion
+      description: delete the Condicion
+      operationId: CondicionController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /estilo_pipe/:
+    get:
+      tags:
+      - estilo_pipe
+      description: get EstiloPipe
+      operationId: EstiloPipeController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.EstiloPipe'
+        "403":
+          description: ""
+    post:
+      tags:
+      - estilo_pipe
+      description: create EstiloPipe
+      operationId: EstiloPipeController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for EstiloPipe content
+        required: true
+        schema:
+          $ref: '#/definitions/models.EstiloPipe'
+      responses:
+        "201":
+          description: '{int} models.EstiloPipe'
+        "403":
+          description: body is empty
+  /estilo_pipe/{id}:
+    get:
+      tags:
+      - estilo_pipe
+      description: get EstiloPipe by id
+      operationId: EstiloPipeController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.EstiloPipe'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - estilo_pipe
+      description: update the EstiloPipe
+      operationId: EstiloPipeController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for EstiloPipe content
+        required: true
+        schema:
+          $ref: '#/definitions/models.EstiloPipe'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.EstiloPipe'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - estilo_pipe
+      description: delete the EstiloPipe
+      operationId: EstiloPipeController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /evaluacion/:
+    get:
+      tags:
+      - evaluacion
+      description: get Evaluacion
+      operationId: EvaluacionController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Evaluacion'
+        "403":
+          description: ""
+    post:
+      tags:
+      - evaluacion
+      description: create Evaluacion
+      operationId: EvaluacionController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for Evaluacion content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Evaluacion'
+      responses:
+        "201":
+          description: '{int} models.Evaluacion'
+        "403":
+          description: body is empty
+  /evaluacion/{id}:
+    get:
+      tags:
+      - evaluacion
+      description: get Evaluacion by id
+      operationId: EvaluacionController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Evaluacion'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - evaluacion
+      description: update the Evaluacion
+      operationId: EvaluacionController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for Evaluacion content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Evaluacion'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Evaluacion'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - evaluacion
+      description: delete the Evaluacion
+      operationId: EvaluacionController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /item/:
+    get:
+      tags:
+      - item
+      description: get Item
+      operationId: ItemController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Item'
+        "403":
+          description: ""
+    post:
+      tags:
+      - item
+      description: create Item
+      operationId: ItemController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for Item content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Item'
+      responses:
+        "201":
+          description: '{int} models.Item'
+        "403":
+          description: body is empty
+  /item/{id}:
+    get:
+      tags:
+      - item
+      description: get Item by id
+      operationId: ItemController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Item'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - item
+      description: update the Item
+      operationId: ItemController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for Item content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Item'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Item'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - item
+      description: delete the Item
+      operationId: ItemController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /opcion_item/:
+    get:
+      tags:
+      - opcion_item
+      description: get OpcionItem
+      operationId: OpcionItemController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.OpcionItem'
+        "403":
+          description: ""
+    post:
+      tags:
+      - opcion_item
+      description: create OpcionItem
+      operationId: OpcionItemController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for OpcionItem content
+        required: true
+        schema:
+          $ref: '#/definitions/models.OpcionItem'
+      responses:
+        "201":
+          description: '{int} models.OpcionItem'
+        "403":
+          description: body is empty
+  /opcion_item/{id}:
+    get:
+      tags:
+      - opcion_item
+      description: get OpcionItem by id
+      operationId: OpcionItemController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.OpcionItem'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - opcion_item
+      description: update the OpcionItem
+      operationId: OpcionItemController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for OpcionItem content
+        required: true
+        schema:
+          $ref: '#/definitions/models.OpcionItem'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.OpcionItem'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - opcion_item
+      description: delete the OpcionItem
+      operationId: OpcionItemController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /opciones/:
+    get:
+      tags:
+      - opciones
+      description: get Opciones
+      operationId: OpcionesController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Opciones'
+        "403":
+          description: ""
+    post:
+      tags:
+      - opciones
+      description: create Opciones
+      operationId: OpcionesController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for Opciones content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Opciones'
+      responses:
+        "201":
+          description: '{int} models.Opciones'
+        "403":
+          description: body is empty
+  /opciones/{id}:
+    get:
+      tags:
+      - opciones
+      description: get Opciones by id
+      operationId: OpcionesController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Opciones'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - opciones
+      description: update the Opciones
+      operationId: OpcionesController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for Opciones content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Opciones'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Opciones'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - opciones
+      description: delete the Opciones
+      operationId: OpcionesController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /plantilla/:
+    get:
+      tags:
+      - plantilla
+      description: get Plantilla
+      operationId: PlantillaController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Plantilla'
+        "403":
+          description: ""
+    post:
+      tags:
+      - plantilla
+      description: create Plantilla
+      operationId: PlantillaController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for Plantilla content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Plantilla'
+      responses:
+        "201":
+          description: '{int} models.Plantilla'
+        "403":
+          description: body is empty
+  /plantilla/{id}:
+    get:
+      tags:
+      - plantilla
+      description: get Plantilla by id
+      operationId: PlantillaController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Plantilla'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - plantilla
+      description: update the Plantilla
+      operationId: PlantillaController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for Plantilla content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Plantilla'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Plantilla'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - plantilla
+      description: delete the Plantilla
+      operationId: PlantillaController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /resultado_evaluacion/:
+    get:
+      tags:
+      - resultado_evaluacion
+      description: get ResultadoEvaluacion
+      operationId: ResultadoEvaluacionController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.ResultadoEvaluacion'
+        "403":
+          description: ""
+    post:
+      tags:
+      - resultado_evaluacion
+      description: create ResultadoEvaluacion
+      operationId: ResultadoEvaluacionController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for ResultadoEvaluacion content
+        required: true
+        schema:
+          $ref: '#/definitions/models.ResultadoEvaluacion'
+      responses:
+        "201":
+          description: '{int} models.ResultadoEvaluacion'
+        "403":
+          description: body is empty
+  /resultado_evaluacion/{id}:
+    get:
+      tags:
+      - resultado_evaluacion
+      description: get ResultadoEvaluacion by id
+      operationId: ResultadoEvaluacionController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.ResultadoEvaluacion'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - resultado_evaluacion
+      description: update the ResultadoEvaluacion
+      operationId: ResultadoEvaluacionController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for ResultadoEvaluacion content
+        required: true
+        schema:
+          $ref: '#/definitions/models.ResultadoEvaluacion'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.ResultadoEvaluacion'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - resultado_evaluacion
+      description: delete the ResultadoEvaluacion
+      operationId: ResultadoEvaluacionController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /seccion/:
+    get:
+      tags:
+      - seccion
+      description: get Seccion
+      operationId: SeccionController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Seccion'
+        "403":
+          description: ""
+    post:
+      tags:
+      - seccion
+      description: create Seccion
+      operationId: SeccionController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for Seccion content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Seccion'
+      responses:
+        "201":
+          description: '{int} models.Seccion'
+        "403":
+          description: body is empty
+  /seccion/{id}:
+    get:
+      tags:
+      - seccion
+      description: get Seccion by id
+      operationId: SeccionController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Seccion'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - seccion
+      description: update the Seccion
+      operationId: SeccionController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for Seccion content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Seccion'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Seccion'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - seccion
+      description: delete the Seccion
+      operationId: SeccionController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /tipo_item/:
+    get:
+      tags:
+      - tipo_item
+      description: get TipoItem
+      operationId: TipoItemController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply
+          to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.TipoItem'
+        "403":
+          description: ""
+    post:
+      tags:
+      - tipo_item
+      description: create TipoItem
+      operationId: TipoItemController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for TipoItem content
+        required: true
+        schema:
+          $ref: '#/definitions/models.TipoItem'
+      responses:
+        "201":
+          description: '{int} models.TipoItem'
+        "403":
+          description: body is empty
+  /tipo_item/{id}:
+    get:
+      tags:
+      - tipo_item
+      description: get TipoItem by id
+      operationId: TipoItemController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.TipoItem'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - tipo_item
+      description: update the TipoItem
+      operationId: TipoItemController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for TipoItem content
+        required: true
+        schema:
+          $ref: '#/definitions/models.TipoItem'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.TipoItem'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - tipo_item
+      description: delete the TipoItem
+      operationId: TipoItemController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+definitions:
+  models.Clasificacion:
+    title: Clasificacion
+    type: object
+    properties:
+      Activo:
+        type: boolean
+      CodigoAbreviacion:
+        type: string
+      Descripcion:
+        type: string
+      FechaCreacion:
+        type: string
+        format: datetime
+      FechaModificacion:
+        type: string
+        format: datetime
+      Id:
+        type: integer
+        format: int64
+      LimiteInferior:
+        type: integer
+        format: int64
+      LimiteSuperior:
+        type: integer
+        format: int64
+      Nombre:
+        type: string
+      NumeroOrden:
+        type: number
+        format: double
+  models.ClasificacionPlantilla:
+    title: ClasificacionPlantilla
+    type: object
+    properties:
+      Activo:
+        type: boolean
+      FechaCreacion:
+        type: string
+        format: datetime
+      FechaModificacion:
+        type: string
+        format: datetime
+      Id:
+        type: integer
+        format: int64
+      IdClasificacion:
+        $ref: '#/definitions/models.Clasificacion'
+      IdPlantilla:
+        $ref: '#/definitions/models.Plantilla'
+  models.Condicion:
+    title: Condicion
+    type: object
+    properties:
+      Activo:
+        type: boolean
+      FechaCreacion:
+        type: string
+        format: datetime
+      FechaModificacion:
+        type: string
+        format: datetime
+      Id:
+        type: integer
+        format: int64
+      IdSeccion:
+        $ref: '#/definitions/models.Seccion'
+      OpcionItemId:
+        type: integer
+        format: int64
+      SeccionDependenciaId:
+        type: integer
+        format: int64
+  models.EstiloPipe:
+    title: EstiloPipe
+    type: object
+    properties:
+      Activo:
+        type: boolean
+      CodigoAbreviacion:
+        type: string
+      Descripcion:
+        type: string
+      FechaCreacion:
+        type: string
+        format: datetime
+      FechaModificacion:
+        type: string
+        format: datetime
+      Id:
+        type: integer
+        format: int64
+      Nombre:
+        type: string
+      NumeroOrden:
+        type: number
+        format: double
+  models.Evaluacion:
+    title: Evaluacion
+    type: object
+    properties:
+      Activo:
+        type: boolean
+      Aprobado:
+        type: boolean
+      ContratoSuscrito:
+        type: integer
+        format: int64
+      CotizacionId:
+        type: integer
+        format: int64
+      FechaCreacion:
+        type: string
+        format: datetime
+      FechaModificacion:
+        type: string
+        format: datetime
+      Id:
+        type: integer
+        format: int64
+      PlantillaId:
+        type: integer
+        format: int64
+      ProveedorId:
+        type: integer
+        format: int64
+      Vigencia:
+        type: integer
+        format: int64
+  models.Item:
+    title: Item
+    type: object
+    properties:
+      Activo:
+        type: boolean
+      FechaCreacion:
+        type: string
+        format: datetime
+      FechaModificacion:
+        type: string
+        format: datetime
+      Id:
+        type: integer
+        format: int64
+      IdEstiloPipe:
+        $ref: '#/definitions/models.EstiloPipe'
+      IdSeccion:
+        $ref: '#/definitions/models.Seccion'
+      IdTipoItem:
+        $ref: '#/definitions/models.TipoItem'
+      Nombre:
+        type: string
+      Valor:
+        type: string
+  models.OpcionItem:
+    title: OpcionItem
+    type: object
+    properties:
+      Activo:
+        type: boolean
+      FechaModificacion:
+        type: string
+        format: datetime
+      FehcaCreacion:
+        type: string
+        format: datetime
+      Id:
+        type: integer
+        format: int64
+      IdItem:
+        $ref: '#/definitions/models.Item'
+      IdOpciones:
+        $ref: '#/definitions/models.Opciones'
+  models.Opciones:
+    title: Opciones
+    type: object
+    properties:
+      Activo:
+        type: boolean
+      Descripcion:
+        type: string
+      FechaCreacion:
+        type: string
+        format: datetime
+      FechaModificacion:
+        type: string
+        format: datetime
+      Id:
+        type: integer
+        format: int64
+      Nombre:
+        type: string
+      Valor:
+        type: integer
+        format: int64
+  models.Plantilla:
+    title: Plantilla
+    type: object
+    properties:
+      Activo:
+        type: boolean
+      Descripcion:
+        type: string
+      FechaCreacion:
+        type: string
+        format: datetime
+      FechaModificacion:
+        type: string
+        format: datetime
+      Id:
+        type: integer
+        format: int64
+      Usuario:
+        type: string
+  models.ResultadoEvaluacion:
+    title: ResultadoEvaluacion
+    type: object
+    properties:
+      Activo:
+        type: string
+        format: datetime
+      FechaCreacion:
+        type: string
+        format: datetime
+      FechaModificacion:
+        type: string
+        format: datetime
+      Id:
+        type: integer
+        format: int64
+      IdEvaluacion:
+        $ref: '#/definitions/models.Evaluacion'
+      ResultadoEvaluacion:
+        type: string
+  models.Seccion:
+    title: Seccion
+    type: object
+    properties:
+      Activo:
+        type: boolean
+      FechaCreacion:
+        type: string
+        format: datetime
+      FechaModificacion:
+        type: string
+        format: datetime
+      Id:
+        type: integer
+        format: int64
+      IdPlantilla:
+        $ref: '#/definitions/models.Plantilla'
+      Nombre:
+        type: string
+      SeccionHijaId:
+        $ref: '#/definitions/models.Seccion'
+  models.TipoItem:
+    title: TipoItem
+    type: object
+    properties:
+      Activo:
+        type: boolean
+      CodigoAbreviacion:
+        type: string
+      Descripcion:
+        type: string
+      FechaCreacion:
+        type: string
+        format: datetime
+      FechaModificacion:
+        type: string
+        format: datetime
+      Id:
+        type: integer
+        format: int64
+      Nombre:
+        type: string
+      NumeroOrden:
+        type: number
+        format: double
+tags:
+- name: tipo_item
+  description: |
+    TipoItemController operations for TipoItem
+- name: opciones
+  description: |
+    OpcionesController operations for Opciones
+- name: opcion_item
+  description: |
+    OpcionItemController operations for OpcionItem
+- name: seccion
+  description: |
+    SeccionController operations for Seccion
+- name: condicion
+  description: |
+    CondicionController operations for Condicion
+- name: clasificacion
+  description: |
+    ClasificacionController operations for Clasificacion
+- name: plantilla
+  description: |
+    PlantillaController operations for Plantilla
+- name: clasificacion_plantilla
+  description: |
+    ClasificacionPlantillaController operations for ClasificacionPlantilla
+- name: estilo_pipe
+  description: |
+    EstiloPipeController operations for EstiloPipe
+- name: item
+  description: |
+    ItemController operations for Item
+- name: evaluacion
+  description: |
+    EvaluacionController operations for Evaluacion
+- name: resultado_evaluacion
+  description: |
+    ResultadoEvaluacionController operations for ResultadoEvaluacion
