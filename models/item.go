@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
-	"time"
 
 	"github.com/astaxie/beego/orm"
 )
@@ -14,8 +13,8 @@ type Item struct {
 	Id                int         `orm:"column(id);pk;auto"`
 	Nombre            string      `orm:"column(nombre)"`
 	Valor             string      `orm:"column(valor);null"`
-	FechaCreacion     time.Time   `orm:"column(fecha_creacion);type(timestamp without time zone)"`
-	FechaModificacion time.Time   `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	FechaCreacion     string      `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion string      `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 	IdSeccion         *Seccion    `orm:"column(id_seccion);rel(fk)"`
 	IdTipoItem        *TipoItem   `orm:"column(id_tipo_item);rel(fk)"`
 	Activo            bool        `orm:"column(activo)"`

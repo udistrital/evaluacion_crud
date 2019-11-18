@@ -7,6 +7,7 @@ import (
 	"strings"
 
 	"github.com/udistrital/evaluacion_crud/models"
+	"github.com/udistrital/utils_oas/time_bogota"
 
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/logs"
@@ -36,6 +37,8 @@ func (c *CondicionController) URLMapping() {
 func (c *CondicionController) Post() {
 	var v models.Condicion
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
+		v.FechaCreacion = time_bogota.TiempoBogotaFormato()
+		v.FechaModificacion = time_bogota.TiempoBogotaFormato()
 		if _, err := models.AddCondicion(&v); err == nil {
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = v
@@ -158,6 +161,7 @@ func (c *CondicionController) Put() {
 	id, _ := strconv.Atoi(idStr)
 	v := models.Condicion{Id: id}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
+		v.FechaModificacion = time_bogota.TiempoBogotaFormato()
 		if err := models.UpdateCondicionById(&v); err == nil {
 			c.Data["json"] = v
 		} else {

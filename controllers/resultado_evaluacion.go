@@ -7,6 +7,7 @@ import (
 	"strings"
 
 	"github.com/udistrital/evaluacion_crud/models"
+	"github.com/udistrital/utils_oas/time_bogota"
 
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/logs"
@@ -36,6 +37,8 @@ func (c *ResultadoEvaluacionController) URLMapping() {
 func (c *ResultadoEvaluacionController) Post() {
 	var v models.ResultadoEvaluacion
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
+		v.FechaCreacion = time_bogota.TiempoBogotaFormato()
+		v.FechaModificacion = time_bogota.TiempoBogotaFormato()
 		if _, err := models.AddResultadoEvaluacion(&v); err == nil {
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = v
@@ -158,6 +161,7 @@ func (c *ResultadoEvaluacionController) Put() {
 	id, _ := strconv.Atoi(idStr)
 	v := models.ResultadoEvaluacion{Id: id}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
+		v.FechaModificacion = time_bogota.TiempoBogotaFormato()
 		if err := models.UpdateResultadoEvaluacionById(&v); err == nil {
 			c.Data["json"] = v
 		} else {
