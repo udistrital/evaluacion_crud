@@ -11,13 +11,12 @@ El modelo de datos se comparte en imagen y en **[.dbm](https://drive.google.com/
 **[SQL evaluacion_proveedores](https://drive.google.com/open?id=1mZLmSuDIbQzwIidVCA29c9LCFWljMZoG)**.
 Registros paramétricos a tener encuenta: **[Parametricas](https://drive.google.com/open?id=1gUK_4g_-vU1LwKsgO_xsMG0yUWGADm9OZRF3fiDRBXg)**.
 
-## Instalación
 
+## Instalación
 ### Requerimientos
 - [Postgres](https://www.postgresql.org/)
 - [Golang](https://github.com/udistrital/introduccion_oas/blob/master/instalacion_de_herramientas/golang.md)
 - [Beego y Bee](https://github.com/udistrital/introduccion_oas/blob/master/instalacion_de_herramientas/beego.md)
-
 
 Para instalar el proyecto de debe relizar lo siguientes pasos:
 #### Opción 1
