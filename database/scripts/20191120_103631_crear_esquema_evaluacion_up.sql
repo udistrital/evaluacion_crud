@@ -17,7 +17,7 @@
 -- DROP SCHEMA IF EXISTS evaluacion CASCADE;
 CREATE SCHEMA evaluacion;
 -- ddl-end --
-ALTER SCHEMA evaluacion OWNER TO postgres;
+-- ALTER SCHEMA evaluacion OWNER TO postgres;
 -- ddl-end --
 
 SET search_path TO pg_catalog,public,evaluacion;
@@ -51,7 +51,7 @@ COMMENT ON COLUMN evaluacion.evaluacion.plantilla_id IS 'hace referencia a la pl
 -- ddl-end --
 COMMENT ON CONSTRAINT uq_proveedor_contrato_vigencia ON evaluacion.evaluacion  IS 'UQ con el fin de que no se diplique una evaluacion para un proveedor y mismo contrato';
 -- ddl-end --
-ALTER TABLE evaluacion.evaluacion OWNER TO postgres;
+-- ALTER TABLE evaluacion.evaluacion OWNER TO postgres;
 -- ddl-end --
 
 -- object: evaluacion.plantilla | type: TABLE --
@@ -71,7 +71,7 @@ COMMENT ON TABLE evaluacion.plantilla IS 'guarda las plantillas';
 -- ddl-end --
 COMMENT ON COLUMN evaluacion.plantilla.activo IS 'plantilla activa';
 -- ddl-end --
-ALTER TABLE evaluacion.plantilla OWNER TO postgres;
+-- ALTER TABLE evaluacion.plantilla OWNER TO postgres;
 -- ddl-end --
 
 -- object: evaluacion.seccion | type: TABLE --
@@ -92,7 +92,7 @@ COMMENT ON TABLE evaluacion.seccion IS 'representara com plantilla dinamica a lo
 -- ddl-end --
 COMMENT ON COLUMN evaluacion.seccion.nombre IS 'nombre en el cual se visualizara en el label de la aplicacion';
 -- ddl-end --
-ALTER TABLE evaluacion.seccion OWNER TO postgres;
+-- ALTER TABLE evaluacion.seccion OWNER TO postgres;
 -- ddl-end --
 
 -- object: plantilla_fk | type: CONSTRAINT --
@@ -134,7 +134,7 @@ COMMENT ON COLUMN evaluacion.item.nombre IS 'nombre del label
 -- ddl-end --
 COMMENT ON COLUMN evaluacion.item.valor IS 'valor usado en caso de item de tipo input o similar';
 -- ddl-end --
-ALTER TABLE evaluacion.item OWNER TO postgres;
+-- ALTER TABLE evaluacion.item OWNER TO postgres;
 -- ddl-end --
 
 -- object: evaluacion.tipo_item | type: TABLE --
@@ -154,7 +154,7 @@ CREATE TABLE evaluacion.tipo_item (
 -- ddl-end --
 COMMENT ON TABLE evaluacion.tipo_item IS 'se almacenaran tipos de item , como input, label, select, entre otros';
 -- ddl-end --
-ALTER TABLE evaluacion.tipo_item OWNER TO postgres;
+-- ALTER TABLE evaluacion.tipo_item OWNER TO postgres;
 -- ddl-end --
 
 -- object: evaluacion.opciones | type: TABLE --
@@ -179,7 +179,7 @@ COMMENT ON COLUMN evaluacion.opciones.descripcion IS 'descripcion de la opcion';
 -- ddl-end --
 COMMENT ON COLUMN evaluacion.opciones.valor IS 'valor numerico para la evaluacion';
 -- ddl-end --
-ALTER TABLE evaluacion.opciones OWNER TO postgres;
+-- ALTER TABLE evaluacion.opciones OWNER TO postgres;
 -- ddl-end --
 
 -- object: seccion_fk | type: CONSTRAINT --
@@ -211,7 +211,7 @@ CREATE TABLE evaluacion.opcion_item (
 -- ddl-end --
 COMMENT ON TABLE evaluacion.opcion_item IS 'tabla de rompimiento entre item y opcion';
 -- ddl-end --
-ALTER TABLE evaluacion.opcion_item OWNER TO postgres;
+-- ALTER TABLE evaluacion.opcion_item OWNER TO postgres;
 -- ddl-end --
 
 -- object: item_fk | type: CONSTRAINT --
@@ -248,7 +248,7 @@ COMMENT ON COLUMN evaluacion.condicion.seccion_dependencia_id IS 'hace refenrenc
 -- ddl-end --
 COMMENT ON COLUMN evaluacion.condicion.opcion_item_id IS 'hace referencia a la opcion seleccionada en la seccion que causa la dependencia';
 -- ddl-end --
-ALTER TABLE evaluacion.condicion OWNER TO postgres;
+-- ALTER TABLE evaluacion.condicion OWNER TO postgres;
 -- ddl-end --
 
 -- object: seccion_fk | type: CONSTRAINT --
@@ -273,7 +273,7 @@ CREATE TABLE evaluacion.clasificacion_plantilla (
 -- ddl-end --
 COMMENT ON TABLE evaluacion.clasificacion_plantilla IS 'tabla de rompimiento entre tipo de clasificacion y la plantilla';
 -- ddl-end --
-ALTER TABLE evaluacion.clasificacion_plantilla OWNER TO postgres;
+-- ALTER TABLE evaluacion.clasificacion_plantilla OWNER TO postgres;
 -- ddl-end --
 
 -- object: evaluacion.clasificacion | type: TABLE --
@@ -295,7 +295,7 @@ CREATE TABLE evaluacion.clasificacion (
 -- ddl-end --
 COMMENT ON TABLE evaluacion.clasificacion IS 'guarda la los tipos de clasificacion del resultado final de la evaluacion';
 -- ddl-end --
-ALTER TABLE evaluacion.clasificacion OWNER TO postgres;
+-- ALTER TABLE evaluacion.clasificacion OWNER TO postgres;
 -- ddl-end --
 
 -- object: clasificacion_fk | type: CONSTRAINT --
@@ -329,7 +329,7 @@ CREATE TABLE evaluacion.estilo_pipe (
 -- ddl-end --
 COMMENT ON TABLE evaluacion.estilo_pipe IS 'almacenara los tipos de pipes aplicables al item, esto dependera si el pipe existe en el cliente';
 -- ddl-end --
-ALTER TABLE evaluacion.estilo_pipe OWNER TO postgres;
+-- ALTER TABLE evaluacion.estilo_pipe OWNER TO postgres;
 -- ddl-end --
 
 -- object: estilo_pipe_fk | type: CONSTRAINT --
@@ -354,7 +354,7 @@ CREATE TABLE evaluacion.resultado_evaluacion (
 -- ddl-end --
 COMMENT ON TABLE evaluacion.resultado_evaluacion IS 'almacena los distintos resultados de la evaluacion, tanto la primera evaliuacion realizada como , si llegan a haber correcciones sobre la evaluacion';
 -- ddl-end --
-ALTER TABLE evaluacion.resultado_evaluacion OWNER TO postgres;
+-- ALTER TABLE evaluacion.resultado_evaluacion OWNER TO postgres;
 -- ddl-end --
 
 -- object: evaluacion_fk | type: CONSTRAINT --
