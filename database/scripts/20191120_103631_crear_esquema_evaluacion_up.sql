@@ -369,12 +369,12 @@ ON DELETE RESTRICT ON UPDATE CASCADE;
 -- GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA evaluacion TO test;
 -- GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA evaluacion TO test;
 
--- -- Permisos de usuario
--- GRANT USAGE ON SCHEMA evaluacion TO desarrollooas;
--- GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA evaluacion TO desarrollooas;
--- GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA evaluacion TO desarrollooas;
-
 -- Permisos de usuario
-GRANT USAGE ON SCHEMA evaluacion TO postgres;
-GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA evaluacion TO postgres;
-GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA evaluacion TO postgres;
+GRANT USAGE ON SCHEMA evaluacion TO desarrollooas;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA evaluacion TO desarrollooas;
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA evaluacion TO desarrollooas;
+
+-- -- Permisos de usuario
+-- GRANT USAGE ON SCHEMA evaluacion TO postgres;
+-- GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA evaluacion TO postgres;
+-- GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA evaluacion TO postgres;
