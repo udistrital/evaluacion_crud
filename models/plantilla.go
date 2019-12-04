@@ -5,18 +5,17 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
-	"time"
 
 	"github.com/astaxie/beego/orm"
 )
 
 type Plantilla struct {
-	Id                int       `orm:"column(id);pk"`
-	Activo            bool      `orm:"column(activo)"`
-	Descripcion       string    `orm:"column(descripcion);null"`
-	FechaCreacion     time.Time `orm:"column(fecha_creacion);type(timestamp without time zone)"`
-	FechaModificacion time.Time `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
-	Usuario           string    `orm:"column(usuario)"`
+	Id                int    `orm:"column(id);pk;auto"`
+	Activo            bool   `orm:"column(activo)"`
+	Descripcion       string `orm:"column(descripcion);null"`
+	FechaCreacion     string `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion string `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	Usuario           string `orm:"column(usuario)"`
 }
 
 func (t *Plantilla) TableName() string {

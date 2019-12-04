@@ -5,17 +5,16 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
-	"time"
 
 	"github.com/astaxie/beego/orm"
 )
 
 type ClasificacionPlantilla struct {
-	Id                int            `orm:"column(id);pk"`
+	Id                int            `orm:"column(id);pk;auto"`
 	IdClasificacion   *Clasificacion `orm:"column(id_clasificacion);rel(fk)"`
 	IdPlantilla       *Plantilla     `orm:"column(id_plantilla);rel(fk)"`
-	FechaCreacion     time.Time      `orm:"column(fecha_creacion);type(timestamp without time zone)"`
-	FechaModificacion time.Time      `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	FechaCreacion     string         `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion string         `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 	Activo            bool           `orm:"column(activo)"`
 }
 

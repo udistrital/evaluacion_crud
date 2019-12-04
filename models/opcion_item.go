@@ -5,15 +5,14 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
-	"time"
 
 	"github.com/astaxie/beego/orm"
 )
 
 type OpcionItem struct {
-	Id                int       `orm:"column(id);pk"`
-	FehcaCreacion     time.Time `orm:"column(fehca_creacion);type(timestamp without time zone)"`
-	FechaModificacion time.Time `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	Id                int       `orm:"column(id);pk;auto"`
+	FechaCreacion     string    `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion string    `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 	IdItem            *Item     `orm:"column(id_item);rel(fk)"`
 	IdOpciones        *Opciones `orm:"column(id_opciones);rel(fk)"`
 	Activo            bool      `orm:"column(activo)"`
