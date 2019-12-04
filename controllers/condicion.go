@@ -161,6 +161,7 @@ func (c *CondicionController) Put() {
 	id, _ := strconv.Atoi(idStr)
 	v := models.Condicion{Id: id}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
+		v.FechaCreacion = time_bogota.TiempoCorreccionFormato(v.FechaCreacion)
 		v.FechaModificacion = time_bogota.TiempoBogotaFormato()
 		if err := models.UpdateCondicionById(&v); err == nil {
 			c.Data["json"] = v

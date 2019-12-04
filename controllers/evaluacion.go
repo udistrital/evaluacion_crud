@@ -161,6 +161,7 @@ func (c *EvaluacionController) Put() {
 	id, _ := strconv.Atoi(idStr)
 	v := models.Evaluacion{Id: id}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
+		v.FechaCreacion = time_bogota.TiempoCorreccionFormato(v.FechaCreacion)
 		v.FechaModificacion = time_bogota.TiempoBogotaFormato()
 		if err := models.UpdateEvaluacionById(&v); err == nil {
 			c.Data["json"] = v

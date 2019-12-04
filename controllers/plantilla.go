@@ -161,6 +161,7 @@ func (c *PlantillaController) Put() {
 	id, _ := strconv.Atoi(idStr)
 	v := models.Plantilla{Id: id}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
+		v.FechaCreacion = time_bogota.TiempoCorreccionFormato(v.FechaCreacion)
 		v.FechaModificacion = time_bogota.TiempoBogotaFormato()
 		if err := models.UpdatePlantillaById(&v); err == nil {
 			c.Data["json"] = v

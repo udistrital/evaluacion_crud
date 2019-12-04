@@ -161,6 +161,7 @@ func (c *TipoItemController) Put() {
 	id, _ := strconv.Atoi(idStr)
 	v := models.TipoItem{Id: id}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
+		v.FechaCreacion = time_bogota.TiempoCorreccionFormato(v.FechaCreacion)
 		v.FechaModificacion = time_bogota.TiempoBogotaFormato()
 		if err := models.UpdateTipoItemById(&v); err == nil {
 			c.Data["json"] = v
