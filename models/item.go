@@ -18,7 +18,7 @@ type Item struct {
 	IdSeccion         *Seccion    `orm:"column(id_seccion);rel(fk)"`
 	IdTipoItem        *TipoItem   `orm:"column(id_tipo_item);rel(fk)"`
 	Tamano            int         `orm:"column(tamano)"`
-	Activo            int         `orm:"column(activo)"`
+	Activo            bool        `orm:"column(activo)"`
 	IdEstiloPipe      *EstiloPipe `orm:"column(id_estilo_pipe);rel(fk)"`
 }
 
