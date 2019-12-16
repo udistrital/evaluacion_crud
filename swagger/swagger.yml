@@ -1515,7 +1515,8 @@ definitions:
     type: object
     properties:
       Activo:
-        type: boolean
+        type: integer
+        format: int64
       FechaCreacion:
         type: string
       FechaModificacion:
@@ -1531,6 +1532,8 @@ definitions:
         $ref: '#/definitions/models.TipoItem'
       Nombre:
         type: string
+      Tamano:
+        type: boolean
       Valor:
         type: string
   models.OpcionItem:
@@ -1622,7 +1625,7 @@ definitions:
         $ref: '#/definitions/models.Plantilla'
       Nombre:
         type: string
-      SeccionHijaId:
+      SeccionPadreId:
         $ref: '#/definitions/models.Seccion'
   models.TipoItem:
     title: TipoItem

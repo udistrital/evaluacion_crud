@@ -2267,7 +2267,8 @@
             "type": "object",
             "properties": {
                 "Activo": {
-                    "type": "boolean"
+                    "type": "integer",
+                    "format": "int64"
                 },
                 "FechaCreacion": {
                     "type": "string"
@@ -2290,6 +2291,9 @@
                 },
                 "Nombre": {
                     "type": "string"
+                },
+                "Tamano": {
+                    "type": "boolean"
                 },
                 "Valor": {
                     "type": "string"
@@ -2424,7 +2428,7 @@
                 "Nombre": {
                     "type": "string"
                 },
-                "SeccionHijaId": {
+                "SeccionPadreId": {
                     "$ref": "#/definitions/models.Seccion"
                 }
             }
