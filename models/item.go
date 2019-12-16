@@ -17,7 +17,7 @@ type Item struct {
 	FechaModificacion string      `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 	IdSeccion         *Seccion    `orm:"column(id_seccion);rel(fk)"`
 	IdTipoItem        *TipoItem   `orm:"column(id_tipo_item);rel(fk)"`
-	Tamano            bool        `orm:"column(tamano)"`
+	Tamano            int         `orm:"column(tamano)"`
 	Activo            int         `orm:"column(activo)"`
 	IdEstiloPipe      *EstiloPipe `orm:"column(id_estilo_pipe);rel(fk)"`
 }
