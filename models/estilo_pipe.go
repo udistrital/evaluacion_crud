@@ -52,7 +52,7 @@ func GetEstiloPipeById(id int) (v *EstiloPipe, err error) {
 func GetAllEstiloPipe(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(EstiloPipe))
+	qs := o.QueryTable(new(EstiloPipe)).RelatedSel()
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute
