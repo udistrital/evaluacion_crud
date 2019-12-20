@@ -8,7 +8,7 @@ insert into evaluacion.tipo_item (nombre,codigo_abreviacion,descripcion,activo,n
 
 -- Datos para tabla estilo_pipe
 insert into evaluacion.estilo_pipe (nombre,codigo_abreviacion,descripcion,activo,numero_orden,fecha_creacion,fecha_modificacion) 
-    values ('Capitalizado','cap','pipe que coloca la primeta letra en mayuscula y las demas en minuscula',TRUE,null,'2019-11-12','2019-11-12');
+    values ('ngxCapitalize','ngxcap','pipe que coloca la primeta letra en mayuscula y las demas en minuscula',TRUE,null,'2019-11-12','2019-11-12');
 insert into evaluacion.estilo_pipe (nombre,codigo_abreviacion,descripcion,activo,numero_orden,fecha_creacion,fecha_modificacion) 
     values ('uppercase','upper','pupper case a los string',TRUE,null,'2019-11-12','2019-11-12');
 insert into evaluacion.estilo_pipe (nombre,codigo_abreviacion,descripcion,activo,numero_orden,fecha_creacion,fecha_modificacion) 
@@ -18,7 +18,7 @@ insert into evaluacion.estilo_pipe (nombre,codigo_abreviacion,descripcion,activo
 
 -- Datos para tabla clasificacion
 insert into evaluacion.clasificacion (nombre,codigo_abreviacion,descripcion,activo,numero_orden,fecha_creacion,fecha_modificacion,limite_inferior,limite_superior) 
-    values ('EXELENTE','EX','calificacion para el proveedor que cumplio con todos los termnios',TRUE,null,'2019-11-12','2019-11-12',80,100);
+    values ('EXCELENTE','EX','calificacion para el proveedor que cumplio con todos los termnios',TRUE,null,'2019-11-12','2019-11-12',80,100);
 insert into evaluacion.clasificacion (nombre,codigo_abreviacion,descripcion,activo,numero_orden,fecha_creacion,fecha_modificacion,limite_inferior,limite_superior) 
     values ('BUENO','BN','calificacion para el proveedor que cumplio parcialmentente con los terminos',TRUE,null,'2019-11-12','2019-11-12',46,79);
 insert into evaluacion.clasificacion (nombre,codigo_abreviacion,descripcion,activo,numero_orden,fecha_creacion,fecha_modificacion,limite_inferior,limite_superior) 
