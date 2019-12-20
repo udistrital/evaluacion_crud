@@ -50,7 +50,7 @@ func GetOpcionItemById(id int) (v *OpcionItem, err error) {
 func GetAllOpcionItem(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(OpcionItem))
+	qs := o.QueryTable(new(OpcionItem)).RelatedSel()
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute

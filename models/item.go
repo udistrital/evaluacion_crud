@@ -17,6 +17,7 @@ type Item struct {
 	FechaModificacion string      `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 	IdSeccion         *Seccion    `orm:"column(id_seccion);rel(fk)"`
 	IdTipoItem        *TipoItem   `orm:"column(id_tipo_item);rel(fk)"`
+	Tamano            int         `orm:"column(tamano)"`
 	Activo            bool        `orm:"column(activo)"`
 	IdEstiloPipe      *EstiloPipe `orm:"column(id_estilo_pipe);rel(fk)"`
 }
@@ -53,7 +54,7 @@ func GetItemById(id int) (v *Item, err error) {
 func GetAllItem(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(Item))
+	qs := o.QueryTable(new(Item)).RelatedSel()
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute
