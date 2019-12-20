@@ -1,5 +1,5 @@
 -- Database generated with pgModeler (PostgreSQL Database Modeler).
--- pgModeler  version: 0.9.2-beta
+-- pgModeler  version: 0.9.2-beta2
 -- PostgreSQL version: 9.5
 -- Project Site: pgmodeler.io
 -- Model Author: ---
@@ -41,16 +41,6 @@ CREATE TABLE evaluacion.evaluacion (
 
 );
 -- ddl-end --
-COMMENT ON COLUMN evaluacion.evaluacion.id IS 'pk de la tabla';
--- ddl-end --
-COMMENT ON COLUMN evaluacion.evaluacion.proveedor_id IS 'identificador, ya sea nit o cedula del proveedor';
--- ddl-end --
-COMMENT ON COLUMN evaluacion.evaluacion.contrato_suscrito IS 'guarda el numero del contrato suscrito';
--- ddl-end --
-COMMENT ON COLUMN evaluacion.evaluacion.plantilla_id IS 'hace referencia a la plantilla que se uso para realizar la evaluacion guardada';
--- ddl-end --
-COMMENT ON CONSTRAINT uq_proveedor_contrato_vigencia ON evaluacion.evaluacion  IS 'UQ con el fin de que no se diplique una evaluacion para un proveedor y mismo contrato';
--- ddl-end --
 -- ALTER TABLE evaluacion.evaluacion OWNER TO postgres;
 -- ddl-end --
 
@@ -82,7 +72,7 @@ CREATE TABLE evaluacion.seccion (
 	fecha_creacion timestamp NOT NULL,
 	fecha_modificacion timestamp NOT NULL,
 	id_plantilla integer NOT NULL,
-	seccion_hija_id integer,
+	seccion_padre_id integer,
 	activo boolean NOT NULL,
 	CONSTRAINT seccion_pk PRIMARY KEY (id)
 
@@ -102,9 +92,9 @@ REFERENCES evaluacion.plantilla (id) MATCH FULL
 ON DELETE RESTRICT ON UPDATE CASCADE;
 -- ddl-end --
 
--- object: rel_seccion_seccion_hija | type: Generic SQL Object --
-ALTER TABLE evaluacion.seccion ADD CONSTRAINT rel_seccion_seccion_hija
-   FOREIGN KEY (seccion_hija_id)
+-- object: rel_seccion_seccion_padre | type: Generic SQL Object --
+ALTER TABLE evaluacion.seccion ADD CONSTRAINT rel_seccion_seccion_padre
+   FOREIGN KEY (seccion_padre_id)
    REFERENCES evaluacion.seccion (id)  
    ON DELETE  RESTRICT 
    ON UPDATE  CASCADE 
@@ -119,20 +109,16 @@ CREATE TABLE evaluacion.item (
 	id serial NOT NULL,
 	nombre varchar(100) NOT NULL,
 	valor varchar(250),
+	tamano integer,
+	activo boolean NOT NULL,
 	fecha_creacion timestamp NOT NULL,
 	fecha_modificacion timestamp NOT NULL,
 	id_seccion integer NOT NULL,
 	id_tipo_item integer NOT NULL,
-	activo boolean NOT NULL,
 	id_estilo_pipe integer,
 	CONSTRAINT item_pk PRIMARY KEY (id)
 
 );
--- ddl-end --
-COMMENT ON COLUMN evaluacion.item.nombre IS 'nombre del label
-';
--- ddl-end --
-COMMENT ON COLUMN evaluacion.item.valor IS 'valor usado en caso de item de tipo input o similar';
 -- ddl-end --
 -- ALTER TABLE evaluacion.item OWNER TO postgres;
 -- ddl-end --
@@ -173,11 +159,11 @@ CREATE TABLE evaluacion.opciones (
 -- ddl-end --
 COMMENT ON TABLE evaluacion.opciones IS 'opciones para los item tipo select o similar';
 -- ddl-end --
-COMMENT ON COLUMN evaluacion.opciones.nombre IS 'nombre que se mostrara en el select';
+COMMENT ON COLUMN evaluacion.opciones.nombre IS 'opciones para los item tipo select o similar';
 -- ddl-end --
-COMMENT ON COLUMN evaluacion.opciones.descripcion IS 'descripcion de la opcion';
+COMMENT ON COLUMN evaluacion.opciones.descripcion IS 'opciones para los item tipo select o similar';
 -- ddl-end --
-COMMENT ON COLUMN evaluacion.opciones.valor IS 'valor numerico para la evaluacion';
+COMMENT ON COLUMN evaluacion.opciones.valor IS 'opciones para los item tipo select o similar';
 -- ddl-end --
 -- ALTER TABLE evaluacion.opciones OWNER TO postgres;
 -- ddl-end --
