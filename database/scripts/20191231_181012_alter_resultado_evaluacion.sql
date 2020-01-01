@@ -1,0 +1,1 @@
+alter table evaluacion.resultado_evaluacion alter COLUMN activo set data type boolean using false;
