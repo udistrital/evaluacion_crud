@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
-	"time"
 
 	"github.com/astaxie/beego/orm"
 )
@@ -15,7 +14,7 @@ type ResultadoEvaluacion struct {
 	ResultadoEvaluacion string      `orm:"column(resultado_evaluacion);type(json)"`
 	FechaCreacion       string      `orm:"column(fecha_creacion);type(timestamp without time zone)"`
 	FechaModificacion   string      `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
-	Activo              time.Time   `orm:"column(activo);type(timestamp without time zone)"`
+	Activo              bool        `orm:"column(activo)"`
 	IdEvaluacion        *Evaluacion `orm:"column(id_evaluacion);rel(fk)"`
 }
 
