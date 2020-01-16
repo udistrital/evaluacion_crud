@@ -22,48 +22,59 @@ Para instalar el proyecto de debe relizar lo siguientes pasos:
 #### Opción 1
 
 Ejecutar desde la terminal 'go get repositorio':
-```javascript
+```bash
 go get github.com/udistrital/evaluacion_crud
 ```
 
 #### Opción 2
 
 Clonar en el proyecto en la carpeta local: go/src/github.com/udistrital:
-```javascript
+```bash
 cd ~go/src/github.com/udistrital 
 ```
 
 Ejecutar:
-```javascript
+```bash
 git clone https://github.com/udistrital/evaluacion_crud
 ```
 
 Ir a la carpeta del proyecto
-```javascript
+```bash
 cd evaluacion_crud
 ```
 Instalar dependencias del proyecto:
-```javascript
+```bash
 go get
 ```
 
 ## Ejecucion del proyecto
 
-```javascript
- bee run -downdoc=true -gendoc=true
-```
-- El servidor se expone en el puerto: 127.0.0.1:8089
-- Para ver la documentación de swagger: 127.0.0.1:8089/swagger/
+# Ejecución del proyecto
 
+
+- Ejecutar: 
+```shell 
+EVALUACIONES_CRUD__PGDB=[nombre de la base de datos] EVALUACIONES_CRUD__PGPASS=[password del usuario] EVALUACIONES_CRUD__PGURLS[direccion de la base de datos] EVALUACIONES_CRUD__PGUSER=[usuario con acceso a la base de datos] EVALUACIONES_CRUD__PGSCHEMA=[esquema donde se ubican las tablas] EVALUACIONES_HTTP_PORT=[puerto de ejecucion] bee run
+```
+- O si se quiere ejecutar el swager:
+
+```shell 
+EVALUACIONES_CRUD__PGDB=[nombre de la base de datos] EVALUACIONES_CRUD__PGPASS=[password del usuario] EVALUACIONES_CRUD__PGURLS[direccion de la base de datos] EVALUACIONES_CRUD__PGUSER=[usuario con acceso a la base de datos] EVALUACIONES_CRUD__PGSCHEMA=[esquema donde se ubican las tablas] EVALUACIONES_HTTP_PORT=[puerto de ejecucion] bee run -downdoc=true -gendoc=true
+```
 
 <hr>
 
-## Derechos de Autor
+### EndPoints
 
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+Al ejecutar el swagger se puede tener mayor apreciacion de los diferentes metodos de peticion por cada endpoint cuales son los distinpos endpoint disponibles y como usarlos.
 
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
-##### UNIVERSIDAD DISTRITAL FRANCISCO JOSÉ DE CALDAS
-##### OFICINA ASESORA DE SISTEMAS
-##### 2019
+## Licencia
+
+This file is part of cumplidos-cliente.
+
+cumplidos-cliente is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+Foobar is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with Foobar. If not, see https://www.gnu.org/licenses/.
