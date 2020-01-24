@@ -40,11 +40,10 @@ go get
 
 ### Ejecución del proyecto
 
- Ejecutar:
 ```shell
 EVALUACIONES_CRUD__PGDB=XXX EVALUACIONES_CRUD__PGPASS=XXX EVALUACIONES_CRUD__PGURLS=XXX EVALUACIONES_CRUD__PGUSER=XXX EVALUACIONES_CRUD__PGSCHEMA=XXX EVALUACIONES_HTTP_PORT=XXX bee run
 ```
-- O si se quiere ejecutar el swager:
+- Com documentación swagger:
 
 ```shell
 EVALUACIONES_CRUD__PGDB=XXX EVALUACIONES_CRUD__PGPASS=XXX EVALUACIONES_CRUD__PGURLS=XXX EVALUACIONES_CRUD__PGUSER=XXX EVALUACIONES_CRUD__PGSCHEMA=XXX EVALUACIONES_HTTP_PORT=XXX bee run -downdoc=true -gendoc=true
@@ -60,6 +59,7 @@ El modelo de datos se comparte en imagen y en **[.dbm](https://drive.google.com/
 
 ### SQL del Modelo de Datos
 **[SQL evaluacion_proveedores](https://drive.google.com/open?id=1mZLmSuDIbQzwIidVCA29c9LCFWljMZoG)**.
+
 Registros paramétricos a tener encuenta: **[Parametricas](https://drive.google.com/open?id=1gUK_4g_-vU1LwKsgO_xsMG0yUWGADm9OZRF3fiDRBXg)**.
 
 ## Licencia
