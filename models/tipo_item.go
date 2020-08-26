@@ -5,20 +5,19 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
-	"time"
 
 	"github.com/astaxie/beego/orm"
 )
 
 type TipoItem struct {
-	Id                int       `orm:"column(id);pk"`
-	Nombre            string    `orm:"column(nombre)"`
-	CodigoAbreviacion string    `orm:"column(codigo_abreviacion);null"`
-	Descripcion       string    `orm:"column(descripcion);null"`
-	Activo            bool      `orm:"column(activo)"`
-	NumeroOrden       float64   `orm:"column(numero_orden);null"`
-	FechaCreacion     time.Time `orm:"column(fecha_creacion);type(timestamp without time zone)"`
-	FechaModificacion time.Time `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	Id                int     `orm:"column(id);pk;auto"`
+	Nombre            string  `orm:"column(nombre)"`
+	CodigoAbreviacion string  `orm:"column(codigo_abreviacion);null"`
+	Descripcion       string  `orm:"column(descripcion);null"`
+	Activo            bool    `orm:"column(activo)"`
+	NumeroOrden       float64 `orm:"column(numero_orden);null"`
+	FechaCreacion     string  `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion string  `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 }
 
 func (t *TipoItem) TableName() string {
@@ -53,7 +52,7 @@ func GetTipoItemById(id int) (v *TipoItem, err error) {
 func GetAllTipoItem(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(TipoItem))
+	qs := o.QueryTable(new(TipoItem)).RelatedSel()
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute

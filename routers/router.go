@@ -16,9 +16,39 @@ import (
 func init() {
 	ns := beego.NewNamespace("/v1",
 
-		beego.NSNamespace("/tipo_item",
+		beego.NSNamespace("/clasificacion",
 			beego.NSInclude(
-				&controllers.TipoItemController{},
+				&controllers.ClasificacionController{},
+			),
+		),
+
+		beego.NSNamespace("/clasificacion_plantilla",
+			beego.NSInclude(
+				&controllers.ClasificacionPlantillaController{},
+			),
+		),
+
+		beego.NSNamespace("/condicion",
+			beego.NSInclude(
+				&controllers.CondicionController{},
+			),
+		),
+
+		beego.NSNamespace("/estilo_pipe",
+			beego.NSInclude(
+				&controllers.EstiloPipeController{},
+			),
+		),
+
+		beego.NSNamespace("/evaluacion",
+			beego.NSInclude(
+				&controllers.EvaluacionController{},
+			),
+		),
+
+		beego.NSNamespace("/item",
+			beego.NSInclude(
+				&controllers.ItemController{},
 			),
 		),
 
@@ -34,57 +64,27 @@ func init() {
 			),
 		),
 
-		beego.NSNamespace("/seccion",
-			beego.NSInclude(
-				&controllers.SeccionController{},
-			),
-		),
-
-		beego.NSNamespace("/condicion",
-			beego.NSInclude(
-				&controllers.CondicionController{},
-			),
-		),
-
-		beego.NSNamespace("/clasificacion",
-			beego.NSInclude(
-				&controllers.ClasificacionController{},
-			),
-		),
-
 		beego.NSNamespace("/plantilla",
 			beego.NSInclude(
 				&controllers.PlantillaController{},
 			),
 		),
 
-		beego.NSNamespace("/clasificacion_plantilla",
-			beego.NSInclude(
-				&controllers.ClasificacionPlantillaController{},
-			),
-		),
-
-		beego.NSNamespace("/estilo_pipe",
-			beego.NSInclude(
-				&controllers.EstiloPipeController{},
-			),
-		),
-
-		beego.NSNamespace("/item",
-			beego.NSInclude(
-				&controllers.ItemController{},
-			),
-		),
-
-		beego.NSNamespace("/evaluacion",
-			beego.NSInclude(
-				&controllers.EvaluacionController{},
-			),
-		),
-
 		beego.NSNamespace("/resultado_evaluacion",
 			beego.NSInclude(
 				&controllers.ResultadoEvaluacionController{},
+			),
+		),
+
+		beego.NSNamespace("/seccion",
+			beego.NSInclude(
+				&controllers.SeccionController{},
+			),
+		),
+
+		beego.NSNamespace("/tipo_item",
+			beego.NSInclude(
+				&controllers.TipoItemController{},
 			),
 		),
 	)

@@ -5,18 +5,17 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
-	"time"
 
 	"github.com/astaxie/beego/orm"
 )
 
 type Seccion struct {
-	Id                int        `orm:"column(id);pk"`
+	Id                int        `orm:"column(id);pk;auto"`
 	Nombre            string     `orm:"column(nombre)"`
-	FechaCreacion     time.Time  `orm:"column(fecha_creacion);type(timestamp without time zone)"`
-	FechaModificacion time.Time  `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	FechaCreacion     string     `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion string     `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 	IdPlantilla       *Plantilla `orm:"column(id_plantilla);rel(fk)"`
-	SeccionHijaId     *Seccion   `orm:"column(seccion_hija_id);rel(fk)"`
+	SeccionPadreId    *Seccion   `orm:"column(seccion_padre_id);rel(fk);null"`
 	Activo            bool       `orm:"column(activo)"`
 }
 
@@ -52,7 +51,7 @@ func GetSeccionById(id int) (v *Seccion, err error) {
 func GetAllSeccion(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(Seccion))
+	qs := o.QueryTable(new(Seccion)).RelatedSel()
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute

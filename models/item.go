@@ -5,19 +5,19 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
-	"time"
 
 	"github.com/astaxie/beego/orm"
 )
 
 type Item struct {
-	Id                int         `orm:"column(id);pk"`
+	Id                int         `orm:"column(id);pk;auto"`
 	Nombre            string      `orm:"column(nombre)"`
 	Valor             string      `orm:"column(valor);null"`
-	FechaCreacion     time.Time   `orm:"column(fecha_creacion);type(timestamp without time zone)"`
-	FechaModificacion time.Time   `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	FechaCreacion     string      `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion string      `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 	IdSeccion         *Seccion    `orm:"column(id_seccion);rel(fk)"`
 	IdTipoItem        *TipoItem   `orm:"column(id_tipo_item);rel(fk)"`
+	Tamano            int         `orm:"column(tamano)"`
 	Activo            bool        `orm:"column(activo)"`
 	IdEstiloPipe      *EstiloPipe `orm:"column(id_estilo_pipe);rel(fk)"`
 }
@@ -54,7 +54,7 @@ func GetItemById(id int) (v *Item, err error) {
 func GetAllItem(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(Item))
+	qs := o.QueryTable(new(Item)).RelatedSel()
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute

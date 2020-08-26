@@ -48,8 +48,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.Clasificacion'
-        "403":
-          description: ""
+        "404":
+          description: not found resource
     post:
       tags:
       - clasificacion
@@ -65,8 +65,8 @@ paths:
       responses:
         "201":
           description: '{int} models.Clasificacion'
-        "403":
-          description: body is empty
+        "400":
+          description: the request contains incorrect syntax
   /clasificacion/{id}:
     get:
       tags:
@@ -84,8 +84,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.Clasificacion'
-        "403":
-          description: :id is empty
+        "404":
+          description: not found resource
     put:
       tags:
       - clasificacion
@@ -108,8 +108,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.Clasificacion'
-        "403":
-          description: :id is not int
+        "400":
+          description: the request contains incorrect syntax
     delete:
       tags:
       - clasificacion
@@ -124,8 +124,8 @@ paths:
       responses:
         "200":
           description: '{string} delete success!'
-        "403":
-          description: id is empty
+        "404":
+          description: not found resource
   /clasificacion_plantilla/:
     get:
       tags:
@@ -163,8 +163,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.ClasificacionPlantilla'
-        "403":
-          description: ""
+        "404":
+          description: not found resource
     post:
       tags:
       - clasificacion_plantilla
@@ -180,8 +180,8 @@ paths:
       responses:
         "201":
           description: '{int} models.ClasificacionPlantilla'
-        "403":
-          description: body is empty
+        "400":
+          description: the request contains incorrect syntax
   /clasificacion_plantilla/{id}:
     get:
       tags:
@@ -199,8 +199,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.ClasificacionPlantilla'
-        "403":
-          description: :id is empty
+        "404":
+          description: not found resource
     put:
       tags:
       - clasificacion_plantilla
@@ -223,8 +223,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.ClasificacionPlantilla'
-        "403":
-          description: :id is not int
+        "400":
+          description: the request contains incorrect syntax
     delete:
       tags:
       - clasificacion_plantilla
@@ -239,8 +239,8 @@ paths:
       responses:
         "200":
           description: '{string} delete success!'
-        "403":
-          description: id is empty
+        "404":
+          description: not found resource
   /condicion/:
     get:
       tags:
@@ -278,8 +278,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.Condicion'
-        "403":
-          description: ""
+        "404":
+          description: not found resource
     post:
       tags:
       - condicion
@@ -295,8 +295,8 @@ paths:
       responses:
         "201":
           description: '{int} models.Condicion'
-        "403":
-          description: body is empty
+        "400":
+          description: the request contains incorrect syntax
   /condicion/{id}:
     get:
       tags:
@@ -314,8 +314,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.Condicion'
-        "403":
-          description: :id is empty
+        "404":
+          description: not found resource
     put:
       tags:
       - condicion
@@ -338,8 +338,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.Condicion'
-        "403":
-          description: :id is not int
+        "400":
+          description: the request contains incorrect syntax
     delete:
       tags:
       - condicion
@@ -354,8 +354,8 @@ paths:
       responses:
         "200":
           description: '{string} delete success!'
-        "403":
-          description: id is empty
+        "404":
+          description: not found resource
   /estilo_pipe/:
     get:
       tags:
@@ -393,8 +393,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.EstiloPipe'
-        "403":
-          description: ""
+        "404":
+          description: not found resource
     post:
       tags:
       - estilo_pipe
@@ -410,8 +410,8 @@ paths:
       responses:
         "201":
           description: '{int} models.EstiloPipe'
-        "403":
-          description: body is empty
+        "400":
+          description: the request contains incorrect syntax
   /estilo_pipe/{id}:
     get:
       tags:
@@ -429,8 +429,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.EstiloPipe'
-        "403":
-          description: :id is empty
+        "404":
+          description: not found resource
     put:
       tags:
       - estilo_pipe
@@ -453,8 +453,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.EstiloPipe'
-        "403":
-          description: :id is not int
+        "400":
+          description: the request contains incorrect syntax
     delete:
       tags:
       - estilo_pipe
@@ -469,8 +469,8 @@ paths:
       responses:
         "200":
           description: '{string} delete success!'
-        "403":
-          description: id is empty
+        "404":
+          description: not found resource
   /evaluacion/:
     get:
       tags:
@@ -508,8 +508,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.Evaluacion'
-        "403":
-          description: ""
+        "404":
+          description: not found resource
     post:
       tags:
       - evaluacion
@@ -525,8 +525,8 @@ paths:
       responses:
         "201":
           description: '{int} models.Evaluacion'
-        "403":
-          description: body is empty
+        "400":
+          description: the request contains incorrect syntax
   /evaluacion/{id}:
     get:
       tags:
@@ -544,8 +544,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.Evaluacion'
-        "403":
-          description: :id is empty
+        "404":
+          description: not found resource
     put:
       tags:
       - evaluacion
@@ -568,8 +568,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.Evaluacion'
-        "403":
-          description: :id is not int
+        "400":
+          description: the request contains incorrect syntax
     delete:
       tags:
       - evaluacion
@@ -584,8 +584,8 @@ paths:
       responses:
         "200":
           description: '{string} delete success!'
-        "403":
-          description: id is empty
+        "404":
+          description: not found resource
   /item/:
     get:
       tags:
@@ -623,8 +623,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.Item'
-        "403":
-          description: ""
+        "404":
+          description: not found resource
     post:
       tags:
       - item
@@ -640,8 +640,8 @@ paths:
       responses:
         "201":
           description: '{int} models.Item'
-        "403":
-          description: body is empty
+        "400":
+          description: the request contains incorrect syntax
   /item/{id}:
     get:
       tags:
@@ -659,8 +659,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.Item'
-        "403":
-          description: :id is empty
+        "404":
+          description: not found resource
     put:
       tags:
       - item
@@ -683,8 +683,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.Item'
-        "403":
-          description: :id is not int
+        "400":
+          description: the request contains incorrect syntax
     delete:
       tags:
       - item
@@ -699,8 +699,8 @@ paths:
       responses:
         "200":
           description: '{string} delete success!'
-        "403":
-          description: id is empty
+        "404":
+          description: not found resource
   /opcion_item/:
     get:
       tags:
@@ -738,8 +738,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.OpcionItem'
-        "403":
-          description: ""
+        "404":
+          description: not found resource
     post:
       tags:
       - opcion_item
@@ -755,8 +755,8 @@ paths:
       responses:
         "201":
           description: '{int} models.OpcionItem'
-        "403":
-          description: body is empty
+        "400":
+          description: the request contains incorrect syntax
   /opcion_item/{id}:
     get:
       tags:
@@ -774,8 +774,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.OpcionItem'
-        "403":
-          description: :id is empty
+        "404":
+          description: not found resource
     put:
       tags:
       - opcion_item
@@ -798,8 +798,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.OpcionItem'
-        "403":
-          description: :id is not int
+        "400":
+          description: the request contains incorrect syntax
     delete:
       tags:
       - opcion_item
@@ -814,8 +814,8 @@ paths:
       responses:
         "200":
           description: '{string} delete success!'
-        "403":
-          description: id is empty
+        "404":
+          description: not found resource
   /opciones/:
     get:
       tags:
@@ -853,8 +853,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.Opciones'
-        "403":
-          description: ""
+        "404":
+          description: not found resource
     post:
       tags:
       - opciones
@@ -870,8 +870,8 @@ paths:
       responses:
         "201":
           description: '{int} models.Opciones'
-        "403":
-          description: body is empty
+        "400":
+          description: the request contains incorrect syntax
   /opciones/{id}:
     get:
       tags:
@@ -889,8 +889,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.Opciones'
-        "403":
-          description: :id is empty
+        "404":
+          description: not found resource
     put:
       tags:
       - opciones
@@ -913,8 +913,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.Opciones'
-        "403":
-          description: :id is not int
+        "400":
+          description: the request contains incorrect syntax
     delete:
       tags:
       - opciones
@@ -929,8 +929,8 @@ paths:
       responses:
         "200":
           description: '{string} delete success!'
-        "403":
-          description: id is empty
+        "404":
+          description: not found resource
   /plantilla/:
     get:
       tags:
@@ -968,8 +968,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.Plantilla'
-        "403":
-          description: ""
+        "404":
+          description: not found resource
     post:
       tags:
       - plantilla
@@ -985,8 +985,8 @@ paths:
       responses:
         "201":
           description: '{int} models.Plantilla'
-        "403":
-          description: body is empty
+        "400":
+          description: the request contains incorrect syntax
   /plantilla/{id}:
     get:
       tags:
@@ -1004,8 +1004,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.Plantilla'
-        "403":
-          description: :id is empty
+        "404":
+          description: not found resource
     put:
       tags:
       - plantilla
@@ -1028,8 +1028,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.Plantilla'
-        "403":
-          description: :id is not int
+        "400":
+          description: the request contains incorrect syntax
     delete:
       tags:
       - plantilla
@@ -1044,8 +1044,8 @@ paths:
       responses:
         "200":
           description: '{string} delete success!'
-        "403":
-          description: id is empty
+        "404":
+          description: not found resource
   /resultado_evaluacion/:
     get:
       tags:
@@ -1083,8 +1083,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.ResultadoEvaluacion'
-        "403":
-          description: ""
+        "404":
+          description: not found resource
     post:
       tags:
       - resultado_evaluacion
@@ -1100,8 +1100,8 @@ paths:
       responses:
         "201":
           description: '{int} models.ResultadoEvaluacion'
-        "403":
-          description: body is empty
+        "400":
+          description: the request contains incorrect syntax
   /resultado_evaluacion/{id}:
     get:
       tags:
@@ -1119,8 +1119,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.ResultadoEvaluacion'
-        "403":
-          description: :id is empty
+        "404":
+          description: not found resource
     put:
       tags:
       - resultado_evaluacion
@@ -1143,8 +1143,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.ResultadoEvaluacion'
-        "403":
-          description: :id is not int
+        "400":
+          description: the request contains incorrect syntax
     delete:
       tags:
       - resultado_evaluacion
@@ -1159,8 +1159,8 @@ paths:
       responses:
         "200":
           description: '{string} delete success!'
-        "403":
-          description: id is empty
+        "404":
+          description: not found resource
   /seccion/:
     get:
       tags:
@@ -1198,8 +1198,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.Seccion'
-        "403":
-          description: ""
+        "404":
+          description: not found resource
     post:
       tags:
       - seccion
@@ -1215,8 +1215,8 @@ paths:
       responses:
         "201":
           description: '{int} models.Seccion'
-        "403":
-          description: body is empty
+        "400":
+          description: the request contains incorrect syntax
   /seccion/{id}:
     get:
       tags:
@@ -1234,8 +1234,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.Seccion'
-        "403":
-          description: :id is empty
+        "404":
+          description: not found resource
     put:
       tags:
       - seccion
@@ -1258,8 +1258,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.Seccion'
-        "403":
-          description: :id is not int
+        "400":
+          description: the request contains incorrect syntax
     delete:
       tags:
       - seccion
@@ -1274,8 +1274,8 @@ paths:
       responses:
         "200":
           description: '{string} delete success!'
-        "403":
-          description: id is empty
+        "404":
+          description: not found resource
   /tipo_item/:
     get:
       tags:
@@ -1313,8 +1313,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.TipoItem'
-        "403":
-          description: ""
+        "404":
+          description: not found resource
     post:
       tags:
       - tipo_item
@@ -1330,8 +1330,8 @@ paths:
       responses:
         "201":
           description: '{int} models.TipoItem'
-        "403":
-          description: body is empty
+        "400":
+          description: the request contains incorrect syntax
   /tipo_item/{id}:
     get:
       tags:
@@ -1349,8 +1349,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.TipoItem'
-        "403":
-          description: :id is empty
+        "404":
+          description: not found resource
     put:
       tags:
       - tipo_item
@@ -1373,8 +1373,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.TipoItem'
-        "403":
-          description: :id is not int
+        "400":
+          description: the request contains incorrect syntax
     delete:
       tags:
       - tipo_item
@@ -1389,8 +1389,8 @@ paths:
       responses:
         "200":
           description: '{string} delete success!'
-        "403":
-          description: id is empty
+        "404":
+          description: not found resource
 definitions:
   models.Clasificacion:
     title: Clasificacion
@@ -1404,10 +1404,8 @@ definitions:
         type: string
       FechaCreacion:
         type: string
-        format: datetime
       FechaModificacion:
         type: string
-        format: datetime
       Id:
         type: integer
         format: int64
@@ -1430,10 +1428,8 @@ definitions:
         type: boolean
       FechaCreacion:
         type: string
-        format: datetime
       FechaModificacion:
         type: string
-        format: datetime
       Id:
         type: integer
         format: int64
@@ -1449,10 +1445,8 @@ definitions:
         type: boolean
       FechaCreacion:
         type: string
-        format: datetime
       FechaModificacion:
         type: string
-        format: datetime
       Id:
         type: integer
         format: int64
@@ -1476,10 +1470,8 @@ definitions:
         type: string
       FechaCreacion:
         type: string
-        format: datetime
       FechaModificacion:
         type: string
-        format: datetime
       Id:
         type: integer
         format: int64
@@ -1504,10 +1496,8 @@ definitions:
         format: int64
       FechaCreacion:
         type: string
-        format: datetime
       FechaModificacion:
         type: string
-        format: datetime
       Id:
         type: integer
         format: int64
@@ -1525,13 +1515,12 @@ definitions:
     type: object
     properties:
       Activo:
-        type: boolean
+        type: integer
+        format: int64
       FechaCreacion:
         type: string
-        format: datetime
       FechaModificacion:
         type: string
-        format: datetime
       Id:
         type: integer
         format: int64
@@ -1543,6 +1532,8 @@ definitions:
         $ref: '#/definitions/models.TipoItem'
       Nombre:
         type: string
+      Tamano:
+        type: boolean
       Valor:
         type: string
   models.OpcionItem:
@@ -1551,12 +1542,10 @@ definitions:
     properties:
       Activo:
         type: boolean
+      FechaCreacion:
+        type: string
       FechaModificacion:
         type: string
-        format: datetime
-      FehcaCreacion:
-        type: string
-        format: datetime
       Id:
         type: integer
         format: int64
@@ -1574,10 +1563,8 @@ definitions:
         type: string
       FechaCreacion:
         type: string
-        format: datetime
       FechaModificacion:
         type: string
-        format: datetime
       Id:
         type: integer
         format: int64
@@ -1596,10 +1583,8 @@ definitions:
         type: string
       FechaCreacion:
         type: string
-        format: datetime
       FechaModificacion:
         type: string
-        format: datetime
       Id:
         type: integer
         format: int64
@@ -1614,10 +1599,8 @@ definitions:
         format: datetime
       FechaCreacion:
         type: string
-        format: datetime
       FechaModificacion:
         type: string
-        format: datetime
       Id:
         type: integer
         format: int64
@@ -1633,10 +1616,8 @@ definitions:
         type: boolean
       FechaCreacion:
         type: string
-        format: datetime
       FechaModificacion:
         type: string
-        format: datetime
       Id:
         type: integer
         format: int64
@@ -1644,7 +1625,7 @@ definitions:
         $ref: '#/definitions/models.Plantilla'
       Nombre:
         type: string
-      SeccionHijaId:
+      SeccionPadreId:
         $ref: '#/definitions/models.Seccion'
   models.TipoItem:
     title: TipoItem
@@ -1658,10 +1639,8 @@ definitions:
         type: string
       FechaCreacion:
         type: string
-        format: datetime
       FechaModificacion:
         type: string
-        format: datetime
       Id:
         type: integer
         format: int64

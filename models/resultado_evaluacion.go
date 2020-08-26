@@ -5,17 +5,16 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
-	"time"
 
 	"github.com/astaxie/beego/orm"
 )
 
 type ResultadoEvaluacion struct {
-	Id                  int         `orm:"column(id);pk"`
+	Id                  int         `orm:"column(id);pk;auto"`
 	ResultadoEvaluacion string      `orm:"column(resultado_evaluacion);type(json)"`
-	FechaCreacion       time.Time   `orm:"column(fecha_creacion);type(timestamp without time zone)"`
-	FechaModificacion   time.Time   `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
-	Activo              time.Time   `orm:"column(activo);type(timestamp without time zone)"`
+	FechaCreacion       string      `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion   string      `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	Activo              bool        `orm:"column(activo)"`
 	IdEvaluacion        *Evaluacion `orm:"column(id_evaluacion);rel(fk)"`
 }
 
@@ -51,7 +50,7 @@ func GetResultadoEvaluacionById(id int) (v *ResultadoEvaluacion, err error) {
 func GetAllResultadoEvaluacion(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(ResultadoEvaluacion))
+	qs := o.QueryTable(new(ResultadoEvaluacion)).RelatedSel()
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute

@@ -5,22 +5,21 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
-	"time"
 
 	"github.com/astaxie/beego/orm"
 )
 
 type Evaluacion struct {
-	Id                int       `orm:"column(id);pk"`
-	ProveedorId       int       `orm:"column(proveedor_id)"`
-	ContratoSuscrito  int       `orm:"column(contrato_suscrito)"`
-	Vigencia          int       `orm:"column(vigencia);null"`
-	CotizacionId      int       `orm:"column(cotizacion_id);null"`
-	PlantillaId       int       `orm:"column(plantilla_id)"`
-	FechaCreacion     time.Time `orm:"column(fecha_creacion);type(timestamp without time zone)"`
-	FechaModificacion time.Time `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
-	Aprobado          bool      `orm:"column(aprobado);null"`
-	Activo            bool      `orm:"column(activo)"`
+	Id                int    `orm:"column(id);pk;auto"`
+	ProveedorId       int    `orm:"column(proveedor_id)"`
+	ContratoSuscrito  int    `orm:"column(contrato_suscrito)"`
+	Vigencia          int    `orm:"column(vigencia);null"`
+	CotizacionId      int    `orm:"column(cotizacion_id);null"`
+	PlantillaId       int    `orm:"column(plantilla_id)"`
+	FechaCreacion     string `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion string `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	Aprobado          bool   `orm:"column(aprobado);null"`
+	Activo            bool   `orm:"column(activo)"`
 }
 
 func (t *Evaluacion) TableName() string {
@@ -55,7 +54,7 @@ func GetEvaluacionById(id int) (v *Evaluacion, err error) {
 func GetAllEvaluacion(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(Evaluacion))
+	qs := o.QueryTable(new(Evaluacion)).RelatedSel()
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute

@@ -5,22 +5,21 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
-	"time"
 
 	"github.com/astaxie/beego/orm"
 )
 
 type Clasificacion struct {
-	Id                int       `orm:"column(id);pk"`
-	Nombre            string    `orm:"column(nombre)"`
-	CodigoAbreviacion string    `orm:"column(codigo_abreviacion);null"`
-	Descripcion       string    `orm:"column(descripcion);null"`
-	Activo            bool      `orm:"column(activo)"`
-	NumeroOrden       float64   `orm:"column(numero_orden);null"`
-	FechaCreacion     time.Time `orm:"column(fecha_creacion);type(timestamp without time zone)"`
-	FechaModificacion time.Time `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
-	LimiteInferior    int       `orm:"column(limite_inferior)"`
-	LimiteSuperior    int       `orm:"column(limite_superior)"`
+	Id                int     `orm:"column(id);pk;auto"`
+	Nombre            string  `orm:"column(nombre)"`
+	CodigoAbreviacion string  `orm:"column(codigo_abreviacion);null"`
+	Descripcion       string  `orm:"column(descripcion);null"`
+	Activo            bool    `orm:"column(activo)"`
+	NumeroOrden       float64 `orm:"column(numero_orden);null"`
+	FechaCreacion     string  `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion string  `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	LimiteInferior    int     `orm:"column(limite_inferior)"`
+	LimiteSuperior    int     `orm:"column(limite_superior)"`
 }
 
 func (t *Clasificacion) TableName() string {
@@ -55,7 +54,7 @@ func GetClasificacionById(id int) (v *Clasificacion, err error) {
 func GetAllClasificacion(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(Clasificacion))
+	qs := o.QueryTable(new(Clasificacion)).RelatedSel()
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute

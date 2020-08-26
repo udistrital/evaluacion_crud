@@ -5,19 +5,18 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
-	"time"
 
 	"github.com/astaxie/beego/orm"
 )
 
 type Condicion struct {
-	Id                   int       `orm:"column(id);pk"`
-	SeccionDependenciaId int       `orm:"column(seccion_dependencia_id)"`
-	OpcionItemId         int       `orm:"column(opcion_item_id)"`
-	IdSeccion            *Seccion  `orm:"column(id_seccion);rel(fk)"`
-	FechaCreacion        time.Time `orm:"column(fecha_creacion);type(timestamp without time zone)"`
-	FechaModificacion    time.Time `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
-	Activo               bool      `orm:"column(activo)"`
+	Id                   int      `orm:"column(id);pk;auto"`
+	SeccionDependenciaId int      `orm:"column(seccion_dependencia_id)"`
+	OpcionItemId         int      `orm:"column(opcion_item_id)"`
+	IdSeccion            *Seccion `orm:"column(id_seccion);rel(fk)"`
+	FechaCreacion        string   `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion    string   `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	Activo               bool     `orm:"column(activo)"`
 }
 
 func (t *Condicion) TableName() string {
@@ -52,7 +51,7 @@ func GetCondicionById(id int) (v *Condicion, err error) {
 func GetAllCondicion(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(Condicion))
+	qs := o.QueryTable(new(Condicion)).RelatedSel()
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute
