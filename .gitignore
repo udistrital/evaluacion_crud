@@ -2,6 +2,9 @@ lastupdate.tmp
 ./evaluacion_crud
 evaluacion_crud
 ejec.sh
+go.mod
+go.sum
+main
 swagger/*.png
 swagger/*.html
 swagger/*.js
