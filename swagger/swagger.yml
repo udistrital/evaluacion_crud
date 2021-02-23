@@ -1515,8 +1515,7 @@ definitions:
     type: object
     properties:
       Activo:
-        type: integer
-        format: int64
+        type: boolean
       FechaCreacion:
         type: string
       FechaModificacion:
@@ -1533,7 +1532,8 @@ definitions:
       Nombre:
         type: string
       Tamano:
-        type: boolean
+        type: integer
+        format: int64
       Valor:
         type: string
   models.OpcionItem:
@@ -1595,8 +1595,7 @@ definitions:
     type: object
     properties:
       Activo:
-        type: string
-        format: datetime
+        type: boolean
       FechaCreacion:
         type: string
       FechaModificacion:
@@ -1650,39 +1649,39 @@ definitions:
         type: number
         format: double
 tags:
-- name: tipo_item
+- name: clasificacion
   description: |
-    TipoItemController operations for TipoItem
+    ClasificacionController operations for Clasificacion
+- name: clasificacion_plantilla
+  description: |
+    ClasificacionPlantillaController operations for ClasificacionPlantilla
+- name: condicion
+  description: |
+    CondicionController operations for Condicion
+- name: estilo_pipe
+  description: |
+    EstiloPipeController operations for EstiloPipe
+- name: evaluacion
+  description: |
+    EvaluacionController operations for Evaluacion
+- name: item
+  description: |
+    ItemController operations for Item
 - name: opciones
   description: |
     OpcionesController operations for Opciones
 - name: opcion_item
   description: |
     OpcionItemController operations for OpcionItem
-- name: seccion
-  description: |
-    SeccionController operations for Seccion
-- name: condicion
-  description: |
-    CondicionController operations for Condicion
-- name: clasificacion
-  description: |
-    ClasificacionController operations for Clasificacion
 - name: plantilla
   description: |
     PlantillaController operations for Plantilla
-- name: clasificacion_plantilla
-  description: |
-    ClasificacionPlantillaController operations for ClasificacionPlantilla
-- name: estilo_pipe
-  description: |
-    EstiloPipeController operations for EstiloPipe
-- name: item
-  description: |
-    ItemController operations for Item
-- name: evaluacion
-  description: |
-    EvaluacionController operations for Evaluacion
 - name: resultado_evaluacion
   description: |
     ResultadoEvaluacionController operations for ResultadoEvaluacion
+- name: seccion
+  description: |
+    SeccionController operations for Seccion
+- name: tipo_item
+  description: |
+    TipoItemController operations for TipoItem
