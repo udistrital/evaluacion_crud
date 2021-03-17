@@ -2267,8 +2267,7 @@
             "type": "object",
             "properties": {
                 "Activo": {
-                    "type": "integer",
-                    "format": "int64"
+                    "type": "boolean"
                 },
                 "FechaCreacion": {
                     "type": "string"
@@ -2293,7 +2292,8 @@
                     "type": "string"
                 },
                 "Tamano": {
-                    "type": "boolean"
+                    "type": "integer",
+                    "format": "int64"
                 },
                 "Valor": {
                     "type": "string"
@@ -2384,8 +2384,7 @@
             "type": "object",
             "properties": {
                 "Activo": {
-                    "type": "string",
-                    "format": "datetime"
+                    "type": "boolean"
                 },
                 "FechaCreacion": {
                     "type": "string"
@@ -2468,8 +2467,28 @@
     },
     "tags": [
         {
-            "name": "tipo_item",
-            "description": "TipoItemController operations for TipoItem\n"
+            "name": "clasificacion",
+            "description": "ClasificacionController operations for Clasificacion\n"
+        },
+        {
+            "name": "clasificacion_plantilla",
+            "description": "ClasificacionPlantillaController operations for ClasificacionPlantilla\n"
+        },
+        {
+            "name": "condicion",
+            "description": "CondicionController operations for Condicion\n"
+        },
+        {
+            "name": "estilo_pipe",
+            "description": "EstiloPipeController operations for EstiloPipe\n"
+        },
+        {
+            "name": "evaluacion",
+            "description": "EvaluacionController operations for Evaluacion\n"
+        },
+        {
+            "name": "item",
+            "description": "ItemController operations for Item\n"
         },
         {
             "name": "opciones",
@@ -2480,40 +2499,20 @@
             "description": "OpcionItemController operations for OpcionItem\n"
         },
         {
-            "name": "seccion",
-            "description": "SeccionController operations for Seccion\n"
-        },
-        {
-            "name": "condicion",
-            "description": "CondicionController operations for Condicion\n"
-        },
-        {
-            "name": "clasificacion",
-            "description": "ClasificacionController operations for Clasificacion\n"
-        },
-        {
             "name": "plantilla",
             "description": "PlantillaController operations for Plantilla\n"
         },
         {
-            "name": "clasificacion_plantilla",
-            "description": "ClasificacionPlantillaController operations for ClasificacionPlantilla\n"
-        },
-        {
-            "name": "estilo_pipe",
-            "description": "EstiloPipeController operations for EstiloPipe\n"
-        },
-        {
-            "name": "item",
-            "description": "ItemController operations for Item\n"
-        },
-        {
-            "name": "evaluacion",
-            "description": "EvaluacionController operations for Evaluacion\n"
-        },
-        {
             "name": "resultado_evaluacion",
             "description": "ResultadoEvaluacionController operations for ResultadoEvaluacion\n"
+        },
+        {
+            "name": "seccion",
+            "description": "SeccionController operations for Seccion\n"
+        },
+        {
+            "name": "tipo_item",
+            "description": "TipoItemController operations for TipoItem\n"
         }
     ]
 }

@@ -41,7 +41,7 @@ func (c *ClasificacionPlantillaController) Post() {
 		v.FechaModificacion = time_bogota.TiempoBogotaFormato()
 		if _, err := models.AddClasificacionPlantilla(&v); err == nil {
 			c.Ctx.Output.SetStatus(201)
-			c.Data["json"] = v
+			c.Data["json"] = map[string]interface{}{"Success": true, "Status": "201", "Message": "Registration successful", "Data": v}
 		} else {
 			logs.Error(err)
 			//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
@@ -74,7 +74,7 @@ func (c *ClasificacionPlantillaController) GetOne() {
 		c.Data["system"] = err
 		c.Abort("404")
 	} else {
-		c.Data["json"] = v
+		c.Data["json"] = map[string]interface{}{"Success": true, "Status": "200", "Message": "Request successful", "Data": v}
 	}
 	c.ServeJSON()
 }
@@ -143,7 +143,7 @@ func (c *ClasificacionPlantillaController) GetAll() {
 		if l == nil {
 			l = append(l, map[string]interface{}{})
 		}
-		c.Data["json"] = l
+		c.Data["json"] = map[string]interface{}{"Success": true, "Status": "200", "Message": "Request successful", "Data": l}
 	}
 	c.ServeJSON()
 }
@@ -164,17 +164,17 @@ func (c *ClasificacionPlantillaController) Put() {
 		v.FechaCreacion = time_bogota.TiempoCorreccionFormato(v.FechaCreacion)
 		v.FechaModificacion = time_bogota.TiempoBogotaFormato()
 		if err := models.UpdateClasificacionPlantillaById(&v); err == nil {
-			c.Data["json"] = v
+			c.Data["json"] = map[string]interface{}{"Success": true, "Status": "200", "Message": "Update successful", "Data": v}
 		} else {
 			logs.Error(err)
 			//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-			c.Data["system"] = err
+			c.Data["message"] = "Error service Put: The request contains an incorrect data type or an invalid parameter"
 			c.Abort("400")
 		}
 	} else {
 		logs.Error(err)
 		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-		c.Data["system"] = err
+		c.Data["message"] = "Error service Put: The request contains an incorrect data type or an invalid parameter"
 		c.Abort("400")
 	}
 	c.ServeJSON()
@@ -191,11 +191,12 @@ func (c *ClasificacionPlantillaController) Delete() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
 	if err := models.DeleteClasificacionPlantilla(id); err == nil {
-		c.Data["json"] = map[string]interface{}{"Id": id}
+		d := map[string]interface{}{"Id": id}
+		c.Data["json"] = map[string]interface{}{"Success": true, "Status": "200", "Message": "Delete successful", "Data": d}
 	} else {
 		logs.Error(err)
 		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
-		c.Data["system"] = err
+		c.Data["message"] = "Error service Delete: Request contains incorrect parameter"
 		c.Abort("404")
 	}
 	c.ServeJSON()
